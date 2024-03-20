@@ -11,6 +11,13 @@
     <div id="app">
 
     <liste />
+
+    </div>
+    <div>
+    <!-- Afficher les inscrits -->
+
+  
+
     </div>
 </body>
 </html>

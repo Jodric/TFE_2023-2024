@@ -21,8 +21,16 @@ class InscriptionController extends Controller
 
         $inscription->save();
 
-        // Autres logiques ou redirections ici
 
-        return response()->json(['message' => 'Inscription réussie'], 200);
+
+        
     }
+
+
+
+
 }
+
+
+
+

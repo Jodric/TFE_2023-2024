@@ -1,5 +1,12 @@
 
 
+
 h1{
     color: blue;
 }
+
+.horaires {
+    display: none; /* Masque la liste d'horaires par défaut */
+}
+
+
