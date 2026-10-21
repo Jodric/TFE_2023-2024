@@ -18,7 +18,13 @@ class AuthController extends Controller
         // Vérifier les informations d'identification de l'utilisateur ici
         $credentials = $request->only('email', 'password');
 
-        if ($credentials['email'] === 'admin@heaj.be' && $credentials['password'] === 'admin') {
+        // Identifiants admin définis dans le fichier .env (voir config/admin.php)
+        $adminEmail = config('admin.email');
+        $adminPassword = config('admin.password');
+
+        if ($adminEmail && $adminPassword
+            && ($credentials['email'] ?? null) === $adminEmail
+            && ($credentials['password'] ?? null) === $adminPassword) {
             // Authentification réussie, rediriger vers la liste des dates
             return redirect()->route('ws-admin-listeinscrit.index');
         } else {
