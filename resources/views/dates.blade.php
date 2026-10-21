@@ -1,33 +1,28 @@
 <!-- resources/views/dates.blade.php -->
+@extends('layout')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des Dates</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-   
-</head>
-<body>
-    <h1>Liste des Dates</h1>
-    
-    <ul>
-        @foreach ($dates as $index => $date)
-            <li>
-                <a href="#" class="date-link" data-index="{{ $index }}">{{ $date }}</a> <!-- Ajoute un attribut de données avec l'index de l'itération -->
-                <!-- Ajoute la liste des horaires avec un identifiant unique -->
-                <ul class="horaires" id="horaires-{{ $index }}">
-                    <li>16:00</li>
-                    <li>16:30</li>
-                    <li>17:00</li>
-                    <li>17:30</li>
-                    <li>18:00</li>
-                    <li><a href="{{ route('welcome') }}">s'inscrire sur la liste d'attente</a></li>
-                </ul>
-                
-            </li>
-        @endforeach
+
+@section('content__date')
+
+<section class="container container__section">
+
+    <h1 class="title title--big">plus d'horaire disponible! Pas de panique. Inscrivez vous sur la liste d'attente</h1>
+
+    <p class="livraisonDay container__connexion--margB container__connexion--margT">vous vous inscrivez pour la distribution du: <span>{{ $next_wednesday }}</span> </p>
+
+    <!--
+    <ul class="horaire container__connexion--margB container__connexion--margT">
+
+        <li>16:00</li>
+        <li>16:30</li>
+        <li>17:00</li>
+        <li>17:30</li>
+        <li>18:00</li>
     </ul>
-</body>
-</html>
+
+-->
+
+    <a class="btn__connexion container__connexion--margT" href="{{ route('welcome') }}">S'inscrire sur la liste d'attente</a>
+    <a class="btn__connexion container__connexion--margT" href="{{ route('verification.show') }}">déjà inscrire sur la liste d'attente</a>
+    @endsection
+</section>

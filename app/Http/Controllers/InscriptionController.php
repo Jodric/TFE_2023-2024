@@ -10,17 +10,19 @@ class InscriptionController extends Controller
 {
     public function soumettreFormulaire(Request $request)
     {
-        // Valider les données du formulaire ici si nécessaire
+        // Valider les données du formulaire 
 
         $inscription = new Inscription([
             'nom' => $request->input('nom'),
             'prenom' => $request->input('prenom'),
             'email' => $request->input('email'),
             'telephone' => $request->input('telephone'),
+            'statut' => 'en_attente',
+            'rdv' => 'en_attente',
+            
         ]);
 
         $inscription->save();
-
 
 
         
@@ -29,7 +31,19 @@ class InscriptionController extends Controller
 
 
 
+    public function getInscriptionsStatus()
+    {
+        $inscriptions = Inscription::all();
+        return response()->json($inscriptions);
+    }
+    
+
+
+
+
 }
+
+
 
 
 

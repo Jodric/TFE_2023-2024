@@ -5,17 +5,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon; 
 
 class DatesController extends Controller
 {
     public function index()
     {
-        // Définit les dates (dans ce cas, il y a une seule date)
-        $dates = [
-            'mercredi 20 mars 2024' => 'mercredi-20-mars-2024',
-        ];
+      
+        $current_date = Carbon::now();
 
-        // Passe les dates à la vue et affiche la vue des dates
-        return view('dates', ['dates' => $dates]);
+        // source https://carbon.nesbot.com/symfony/
+        
+        while ($current_date->dayOfWeek != Carbon::WEDNESDAY) {
+            $current_date->addDay();
+        }
+
+        
+        $next_wednesday_str = $current_date->formatLocalized('mercredi %d %B %Y');
+
+        
+        return view('dates', ['next_wednesday' => $next_wednesday_str]);
     }
 }
+
+

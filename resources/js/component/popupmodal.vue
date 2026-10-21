@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
-    <div class="popup-modal" v-if="isVisible">
-      <div class="window">
+    <div v-if="isVisible">
+      <div >
         <slot></slot>
       </div>
     </div>

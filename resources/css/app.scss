@@ -1,0 +1,268 @@
+@import '../../node_modules/modern-normalize/modern-normalize';
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+  .head__container{
+   padding: 18px;
+  
+  }
+
+
+h1 {
+    color: blue;
+}
+
+.bg__statut{
+    background-color: green;
+}
+
+.bg__statut--refus{
+    background-color: red;
+}
+
+/* css pour la fenetre popup de listeinscrit */
+
+.remove-btn {
+    display: inline;
+}
+
+.dispo-btn {
+    display: none;
+}
+
+tr:hover .remove-btn{
+    display: inline;
+}
+
+tr:hover  .dispo-btn{
+    display: inline;
+}
+
+
+/*CSS pour masquer la fenêtre pop-up par défaut */
+.popup-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #ccc;
+    z-index: 9999;
+}
+
+/* ----------------------- Page Accueil ----------------------- */
+
+
+.container__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    
+    padding: 20px;
+    background-image: url(../img/background.svg);
+    background-size: cover;
+    border-radius: 20px;
+}
+
+
+.img__logoDwt {
+    margin-bottom: 20px;
+}
+
+
+.title {
+    text-align: center; 
+  
+}
+
+
+.title--medium {
+    color: green;
+}
+
+
+.container__connexion {
+    margin-top: 20px;
+    background-color: white;
+    width: 93%;
+    height: 53%;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;
+    padding: 25px;
+
+    input{
+        font-size: 150%;
+        border-radius: 6px;
+    }
+}
+
+
+.btn__connexion {
+    text-align: center;
+    background-color: green;
+    display: inline-block; 
+    color: white;
+    padding: 7px;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+    border-style: none; 
+    font-size: 150%;
+    margin-top: 10px;
+}
+
+
+.btn__connexion:hover {
+    background-color: darkgreen;
+}
+
+
+/* ----------------------- Page Connexion ----------------------- */
+
+.containair__error{
+    color: red;
+}
+
+.container__connexion--margB{
+    margin-bottom: 15px;
+}
+
+.container__connexion--margT{
+margin-top: 25px;
+}
+
+
+/* ----------------------- Page Date ----------------------- */
+
+.horaire{
+    list-style: none;
+    width: 100%;
+    font-size: x-large;
+
+    li{
+        margin-top: 5px;
+        border-style: groove;
+        text-align: center;
+        opacity: 0.3;
+    }
+}
+
+.livraisonDay{
+
+    font-size: larger;
+    
+    span{
+        color: red;
+    }
+}
+
+
+/* ----------------------- Page Profil ----------------------- */
+
+.profil {
+    height: auto;
+    gap: 15px;
+}
+
+.profil__infos {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: larger;
+    transition: background-color 0.3s ease;
+
+    p {
+        margin-top: 5px;
+    }
+
+    &.bg__statut,
+    &.bg__statut--refus {
+        color: white;
+    }
+}
+
+.btn__connexion--retirer {
+    background-color: #b00020;
+
+    &:hover {
+        background-color: darkred;
+    }
+}
+
+.btn__connexion--annuler {
+    background-color: grey;
+
+    &:hover {
+        background-color: dimgrey;
+    }
+}
+
+.profil__popup {
+    width: 90%;
+    max-width: 420px;
+    border-radius: 12px;
+    text-align: center;
+
+    p {
+        margin: 10px 0;
+    }
+
+    .btn__connexion {
+        font-size: 120%;
+    }
+}
+
+.profil__popup-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+/* ----------------------- FOOTER ----------------------- */
+
+
+footer {
+    text-align: center;
+    border-top: 1px solid #06593B;
+  }
+  
+  
+
+  
+  .copyrith {
+  
+    padding-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    padding: 23px;
+  }
+  
+  
+  
+  .annee {
+    color: black;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .footer a {
+    color: #823e05;
+  }
+  
+  .img__logoDwt {
+    margin-left: 5px;
+    background-color: black;
+    width: 45px;
+    height: 26px;
+  }

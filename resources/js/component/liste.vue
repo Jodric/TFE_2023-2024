@@ -1,35 +1,33 @@
 <template>
   <div>
-    <h2>Inscription à la Liste d'Attente</h2>
-    <form @submit.prevent="submitForm">
-      <label for="nom">Nom :</label>
-      <input type="text" id="nom" v-model="nom" required>
+    <form class="container__connexion" @submit.prevent="submitForm">
+      <label class="container__connexion--margB " for="nom">Nom :</label>
+      <input class="container__connexion--margB " type="text" id="nom" v-model="nom" required>
 
-      <label for="prenom">Prénom :</label>
-      <input type="text" id="prenom" v-model="prenom" required>
+      <label class="container__connexion--margB " for="prenom">Prénom :</label>
+      <input class="container__connexion--margB " type="text" id="prenom" v-model="prenom" required>
 
-      <label for="email">Email :</label>
-      <input type="email" id="email" v-model="email" required>
+      <label class="container__connexion--margB " for="email">Email :</label>
+      <input class="container__connexion--margB " type="email" id="email" v-model="email" required>
 
-      <label for="telephone">Numéro de Téléphone :</label>
-      <input type="tel" id="telephone" v-model="telephone" required>
+      <label class="container__connexion--margB " for="telephone">Numéro de Téléphone :</label>
+      <input class="container__connexion--margB " type="tel" id="telephone" v-model="telephone" required>
 
-      <button type="submit">S'Inscrire</button>
+      <button class="btn__connexion " type="submit">S'Inscrire</button>
     </form>
 
     <!-- Boîte de dialogue de confirmation -->
-    <div class="popup-modal">
+    <div class="popup-modal"  v-if="showConfirmationPopup">
       <div class="window">
-    <PopupModal  v-if="showConfirmationPopup" ref="confirmationDialog">
-      <h1>Bienvenue sur la Liste d'Attente</h1>
-    <h2>Inscrits :</h2>
-      <p>Êtes-vous sûr de vouloir vous inscrire ?</p>
-      <button @click="handleConfirmation">Confirmer</button>
-      <button @click="closeConfirmationDialog">Annuler</button>
-    </PopupModal>
-    
-  </div>
-</div>
+        <PopupModal  ref="confirmationDialog">
+          <h1>Vous faite maintenant parti de la liste d'attente</h1>
+          <h2>Inscrit</h2>
+          
+          <button  @click="handleConfirmation">voir mon profil</button>
+        </PopupModal>
+
+      </div>
+    </div>
 
 
   </div>
@@ -59,7 +57,7 @@ export default {
         telephone: this.telephone,
       };
 
-      
+
 
       // Utilisez Axios pour effectuer une requête POST vers le backend
       axios.post('/soumettre-formulaire', userData)
@@ -67,10 +65,10 @@ export default {
           // Gérer la réponse du backend si nécessaire
           console.log("Réponse du backend :", response.data);
 
-             // Afficher la boîte de dialogue de confirmation
-        this.showConfirmationPopup = true;
+          // Afficher la boîte de dialogue de confirmation
+          this.showConfirmationPopup = true;
 
-          
+
         })
         .catch(error => {
           // Gérer les erreurs
@@ -89,12 +87,11 @@ export default {
       // Logique pour gérer l'inscription confirmée
       console.log("Inscription confirmée !");
       // Fermez la boîte de dialogue de confirmation
-      this.showConfirmationPopup = false;
+      // this.showConfirmationPopup = false;
+       window.location.href = '/verification';
+
     },
-    closeConfirmationDialog() {
-      // Fermez la boîte de dialogue de confirmation sans confirmer
-      this.showConfirmationPopup = false;
-    },
+
 
 
   },
@@ -107,30 +104,31 @@ export default {
 <style scoped>
 /* Ajoutez du CSS spécifique à ce composant ici */
 
-  /* Classe CSS pour l'animation de transition */
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: opacity 0.3s;
-  }
-  .fade-enter,
-  .fade-leave-to {
-    opacity: 0;
-  }
+/* Classe CSS pour l'animation de transition */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 
 
 
 /* Ajoutez du CSS spécifique à ce composant ici */
 .popup-modal {
-  position: fixed;
+  position: relative;
   top: 0;
-  left: 0;
+  /*left: 0;*/
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
- 
+
 }
 
 .window {
@@ -140,4 +138,7 @@ export default {
   max-width: 480px;
   padding: 1rem;
 }
+
+
+
 </style>

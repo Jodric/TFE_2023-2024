@@ -1,23 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste d'attente Au petit panier</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body>
-    <h1>hello</h1>
+@extends('layout')
+
+
+@section('content__welcome')
+
+<section class="container container__section">
+
+    <h1 class="title title--big">Inscription sur Liste d'Attente</h1>
     <div id="app">
 
-    <liste />
+        <liste />
 
     </div>
     <div>
-    <!-- Afficher les inscrits -->
-
-  
-
+        <!-- Afficher les inscrits -->
     </div>
-</body>
-</html>
+
+</section>
+
+@endsection

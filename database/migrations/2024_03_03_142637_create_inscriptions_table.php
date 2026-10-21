@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('prenom');
             $table->string('email');
             $table->string('telephone');
+            $table->string('statut')->default('en_attente');
             $table->timestamps();
         });
     }

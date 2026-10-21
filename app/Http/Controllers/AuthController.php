@@ -10,7 +10,7 @@ class AuthController extends Controller
 {
     public function showLoginForm()
     {
-        return view('connexion');
+        return view('ws-admin');
     }
 
     public function login(Request $request)
@@ -20,7 +20,7 @@ class AuthController extends Controller
 
         if ($credentials['email'] === 'admin@heaj.be' && $credentials['password'] === 'admin') {
             // Authentification réussie, rediriger vers la liste des dates
-            return redirect()->route('dates.index');
+            return redirect()->route('ws-admin-listeinscrit.index');
         } else {
             // Authentification échouée, rediriger vers la page de connexion avec un message d'erreur
             return redirect()->back()->withErrors(['error' => 'Adresse e-mail ou mot de passe incorrect.']);
